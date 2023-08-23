@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-plans.css">
+
+</head>
+
+<body>
+
+    <div class="pricing-table-container">
+        
+        <div class="pricing-header">
+            <h2>Choose the right plan for you</h2>
+
+        </div>
+        <table>
+            <tr >
+                <th class="plans-switch-container">
+                    <input type="checkbox" class="plans-switch">
+                    <span class="monthly">Monthly</span>
+                    <span class="yearly">Yearly</span>
+                </th>
+                <th><button class="plan-button mobile head">Mobile</button></th>
+                <th><button class="plan-button Basic head">Basic</button></th>
+                <th><button class="plan-button Standard head">Standard</button></th>
+                <th><button class="plan-button Premium head">Premium</button></th>
+            </tr>
+
+            <tr class="underline">
+                <td class="plan-duration">Monthly Price</td>
+                <td class="mobile mobprice">₹ 100</td>
+                <td class="Basic basprice">₹ 200</td>
+                <td class="Standard stdprice">₹ 500</td>
+                <td class=" Premium premprice">₹ 700</td>
+
+            </tr>
+             <tr class="underline">
+                <td>Video quality</td>
+                <td class="mobile ">Good</td>
+                <td class="Basic ">Good</td>
+                <td class="Standard ">Better</td>
+                <td class=" Premium ">Best</td>
+
+            </tr>
+             <tr class="underline">
+                <td>Resolution</td>
+                <td class="mobile ">480p</td>
+                <td class="Basic ">480p</td>
+                <td class="Standard ">1080p</td>
+                <td class=" Premium ">4K+HDR</td>
+
+            </tr>
+             <tr >
+                <td>Devices you can use to watch</td>
+                <td class="mobile ">Phone</td>
+                <td class="Basic ">Phone</td>
+                <td class="Standard ">Phone</td>
+                <td class=" Premium ">Phone</td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td class="mobile ">Tablet</td>
+                <td class="Basic ">Tablet</td>
+                <td class="Standard ">Tablet</td>
+                <td class=" Premium ">Tablet</td>
+
+            </tr>
+                         <tr>
+                <td></td>
+                <td class="mobile "></td>
+                <td class="Basic ">Computer</td>
+                <td class="Standard ">Computer</td>
+                <td class=" Premium ">Computer</td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td class="mobile "></td>
+                <td class="Basic ">TV</td>
+                <td class="Standard ">TV</td>
+                <td class=" Premium ">TV</td>
+
+            </tr>
+
+
+        </table>
+        <input type="submit" id="next" ></button>
+    </div>
+
+
+    <script>
+        const plansSwitch = document.querySelector(".plans-switch");
+        const mobprice = document.querySelector(".mobprice");
+        const basprice = document.querySelector(".basprice");
+        const stdprice = document.querySelector(".stdprice");
+        const premprice = document.querySelector(".premprice");
+
+        const planDuration = document.querySelectorAll(".plan-duration");
+
+        plansSwitch.addEventListener("change", () => {
+            if (plansSwitch.checked) {
+                mobprice.innerText = "₹ 1000";
+                basprice.innerText = "₹ 2000";
+                stdprice.innerText = "₹ 5000";
+                premprice.innerText = "₹ 7000";
+                planDuration.forEach(p => {
+                    p.innerText = "Annual Price";
+                })
+            } else {
+                                mobprice.innerText = "₹ 100";
+                basprice.innerText = "₹ 200";
+                stdprice.innerText = "₹ 500";
+                premprice.innerText = "₹ 700";
+
+                planDuration.forEach(p => {
+                    p.innerText = "Monthly Price";
+                })
+            }
+        })
+
+const planButtons = document.querySelectorAll(".plan-button");
+let selectedPlan = ""; // To store the selected plan name
+
+planButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        // Get the text inside the button and store it in the selectedPlan variable
+        selectedPlan = button.textContent.trim();
+        console.log(selectedPlan); // Check if the selected plan is logged correctly
+    });
+});
+
+
+const nextButton = document.getElementById("next");
+nextButton.addEventListener("click", () => {
+    if (selectedPlan) {
+        const redirectUrl = `/pay?selectedPlan=${encodeURIComponent(selectedPlan)}`;
+        window.location.href = redirectUrl;
+    } else {
+        console.log("No plan selected");
+    }
+});
+
+
+
+    </script>
+</body>
+
+</html>

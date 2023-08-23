@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="maindiv">
+            <h1 class="heading">Create Account</h1>
+            <form action="/register" method="post">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter Your Name" id="name">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Enter Your Email" id="email">
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="Enter Your Password" id="password">
+                <div class="remBox">
+                    <input type="checkbox" name="rem" id="rem">
+                    <label for="rem">Remember Me</label>
+                </div>
+            <button type="submit" name="SignUp" id="submit">Sign Up</button>
+            </form>
+            <p class="extra">Already have a account <a href="/login" class="redirect">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

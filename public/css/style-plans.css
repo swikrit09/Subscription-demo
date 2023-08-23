@@ -1,0 +1,101 @@
+:root {
+    --dark-blue: #023047;
+    --green: #06D6A0;
+    --yellow: #FFD166;
+    --light-color: #F1FAEE;
+    --pink: #EF476F;
+        --bg:rgb(13, 53, 96);
+}
+
+.pricing-table-container {
+    font-family: "Poppins", sans-serif;
+}
+
+.pricing-table-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.pricing-table-container .plans-switch {
+    width: 250px;
+    background: var(--dark-blue);
+    height: 55px;
+    appearance: none;
+    border-radius: 24px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.pricing-table-container .plans-switch-container {
+    position: relative;
+    color: #fff;
+    display: inline-block;
+}
+
+.pricing-table-container .plans-switch-container .monthly {
+    position: absolute;
+    left: 36px;
+    top: 18px;
+    pointer-events: none;
+}
+
+.pricing-table-container .plans-switch-container .yearly {
+    position: absolute;
+    right: 36px;
+    top: 18px;
+    pointer-events: none;
+}
+
+.plans-switch::before {
+    content: "";
+    position: absolute;
+    height: 44px;
+    width: 120px;
+    border-radius: 24px;
+    background: var(--green);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 6px;
+    transition: all 0.5s;
+}
+
+.plans-switch:checked::before {
+    left: 138px;
+    width: 106px;
+}
+.head{
+    padding: 40px 30px;
+    margin: 10px 30px;
+    background-color: var(--bg);
+    opacity: 0.5;
+    color: var(--light-color);
+    border: none;
+font-weight: bold;
+
+}
+.head:is(:focus,::selection){
+    opacity: 1;
+}
+
+
+td{
+    padding: 8px 50px;
+}
+
+.underline{
+    border-bottom:5px solid rgb(44, 44, 44) !important ;
+}
+#next{
+padding: 13px 100px;
+background-color: var(--bg);
+font-weight: bold;
+    border: none;
+color: var(--light-color);
+}
+button:hover{
+cursor: pointer;
+}
