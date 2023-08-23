@@ -100,7 +100,7 @@ app.get("/dashboard", async (req, res) => {
             const userName = req.session.user.name;
             const user = await Register.findOne({ email: req.session.user.email });
 
-            console.log("Retrieved user:", user); // Log the retrieved user object
+            // console.log("Retrieved user:", user);
 
             if (user && user.subscriptions && user.subscriptions.length > 0) {
                 const plan = await Plan.findOne({ _id: user.subscriptions[0].plan });

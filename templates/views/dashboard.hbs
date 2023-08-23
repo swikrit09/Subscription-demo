@@ -33,7 +33,7 @@
         <div class="mainDiv">
             <h1 class="heading">Current Plan Details</h1>
             <h3>No subscriptions found.</h3>
-            <button id="next">Change Plan</button>
+            <button id="next">Choose Plan</button>
         </div>
         {{/if}}
 
@@ -44,15 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = document.querySelector(".status");
     const cancelButton = document.getElementById("cancel");
 
+    document.getElementById("next").addEventListener("click", () => {
+        window.location.href = "/plans"; // Redirect to the specified URL
+    });
     if (status.innerText === "Cancelled") {
         status.style.color = "red";
         status.style.backgroundColor = "#ffcccb";
         cancelButton.style.display = "none";
     }
 
-    document.getElementById("next").addEventListener("click", () => {
-        window.location.href = "/plans"; // Redirect to the specified URL
-    });
 
     cancelButton.addEventListener("click", () => {
         const confirmCancel = window.confirm("Are you sure you want to cancel your subscription?\nOnce cancelled cannot be retrieved");
