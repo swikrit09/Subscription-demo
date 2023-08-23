@@ -1,24 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/style-dashboard.css">
 </head>
+
 <body>
+    <p style="color: aliceblue; position:absolute;">{{userName}}</p>
     <div class="container">
-        <p style="color: aliceblue;">{{userName}}</p>
+        {{#if planName}}
         <div class="mainDiv">
-            <h1 class="heading">Current Plan Details <span class="status"></span></h1>
-            <div class=""></div>
+            <div class="firstline">
+                <h1 class="heading">Current Plan Details
+
+                    <span class="status">{{planStatus}}</span>
+                </h1>
+                <button id="cancel">Cancel</button>
+            </div>
+            <div class="plan">
+                <h3 id="planname">{{planName}}</h3>
+                <p>Phone+Tablet</p>
+                <h1 class="price">{{planPrice}}<span>/mon</span></h1>
+            </div>
+            <button id="next">Change Plan</button>
+            <p class="subsdetail">Your Subscription has started on {{formattedStartDate}} and will auto renew on
+                {{formattedEndDate}}.</p>
+        </div>
+        {{else}}
+        <div class="mainDiv">
+            <h1 class="heading">Current Plan Details</h1>
+            <h3>No subscriptions found.</h3>
             <button id="next">Change Plan</button>
         </div>
+        {{/if}}
+
+
     </div>
     <script>
-    document.getElementById("next").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", () => {
+    const status = document.querySelector(".status");
+    const cancelButton = document.getElementById("cancel");
+
+    if (status.innerText === "Cancelled") {
+        status.style.color = "red";
+        status.style.backgroundColor = "#ffcccb";
+        cancelButton.style.display = "none";
+    }
+
+    document.getElementById("next").addEventListener("click", () => {
         window.location.href = "/plans"; // Redirect to the specified URL
     });
-</script>
+
+    cancelButton.addEventListener("click", () => {
+        const confirmCancel = window.confirm("Are you sure you want to cancel your subscription?\nOnce cancelled cannot be retrieved");
+        if (confirmCancel) {
+            window.location.href = "/cancel";
+        }
+    });
+});
+
+    </script>
 </body>
+
 </html>

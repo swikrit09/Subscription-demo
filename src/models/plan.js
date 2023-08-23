@@ -6,7 +6,9 @@ const planSchema = new mongoose.Schema({
     //     monthly: { type: Number, required: true },
     //     yearly: { type: Number, required: true }
     // },
-    price:Number
+    price:Number,
+    prodID: { type: String, required: true },
+    stripePriceId: { type: String, required: true },
 });
 
 const Plan = mongoose.model("Plan", planSchema);

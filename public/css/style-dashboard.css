@@ -18,6 +18,7 @@ html{
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    flex-wrap: wrap;
     background-color: var(--bg);
 }
 .mainDiv{
@@ -27,4 +28,52 @@ html{
     flex-direction: column;
     gap: 2.3rem;
     border-radius: 15px;
+}
+.firstline{
+    display: flex;
+    justify-content: space-between;
+}
+#cancel{
+    all: unset;
+    background-color: transparent;
+    color: rgb(2, 2, 165);
+    font-size: 15px;
+    font-weight: bold;
+}
+.status{
+    background-color: lightblue;
+    color: var(--bg);
+    font-size: 12px;
+    padding: 2px ;
+    font-weight: bold;
+}
+.price{
+    font-size: 40px;
+    color: black;
+}
+.plan{
+    font-size: 130%;
+    color: rgb(137, 137, 137);
+}
+#planname{
+    /* font-size: 15px; */
+    font-weight: bold;
+
+}
+#next{
+    all: unset;
+    color: darkblue;
+    background-color: transparent;
+    border: 1.3px solid darkblue;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px 10px;
+    width: max-content;
+
+}
+.subsdetail{
+    font-size: 13px;
+}
+#cancel:hover,#next:hover{
+    cursor: pointer;
 }

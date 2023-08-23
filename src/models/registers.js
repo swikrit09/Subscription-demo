@@ -15,6 +15,12 @@ const employeeSchema= new mongoose.Schema({
         type:String,
         required:true
     },
+    subscriptions: [{
+        plan: { type: mongoose.Schema.Types.ObjectId, ref: 'Plan' },
+        startDate: Date,
+        endDate: Date,
+        status:String,
+    }],
     tokens:[{
         token:{
             type:String,
